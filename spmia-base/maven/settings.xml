@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+	<localRepository>/mnt/hgfs/yrepo/maven_repo</localRepository>
+	<interactiveMode>true</interactiveMode>
+	<offline>false</offline>
+<!--
+	<pluginGroups>
+		<pluginGroup>yhli.maven.plugin</pluginGroup>
+	</pluginGroups>
+-->
+	<proxies>
+	</proxies>
+
+	<servers>
+		<server>
+			<id>nexus-releases</id>
+			<username>admin</username>
+			<password>admin123</password>
+		</server>
+		<server>
+			<id>nexus-snapshots</id>
+			<username>admin</username>
+			<password>admin123</password>
+		</server>
+	</servers>
+
+	<mirrors>
+	</mirrors>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<repositories>
+				<!-- This should be at top, it makes maven try the central repo first and 
+					then others and hence faster dep resolution -->
+				<repository>
+					<id>central-mirror</id>
+					<name>OSChina Central</name>
+					<url>http://maven.oschina.net/content/groups/public/</url>
+				</repository>
+
+				<repository>
+					<id>central</id>
+					<name>Maven Repository</name>
+					<url>https://repo1.maven.org/maven2</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+
+				<repository>
+					<id>apache-repo</id>
+					<name>Apache Repository</name>
+					<url>https://repository.apache.org/content/repositories/releases</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+
+				<repository>
+					<id>spring-repo</id>
+					<name>Spring Repository</name>
+					<url>http://repo.spring.io/release</url>
+				</repository>
+
+			</repositories>
+
+			<pluginRepositories>
+<!--
+				<pluginRepository>
+					<id>plugin-central-mirror</id>
+					<name>OSChina Central</name>
+					<url>http://maven.oschina.net/content/groups/public/</url>
+				</pluginRepository>
+-->
+			</pluginRepositories>
+		</profile>
+	</profiles>
+
+	<activeProfiles>
+		<activeProfile>dev</activeProfile>
+	</activeProfiles>
+
+</settings>

@@ -1,0 +1,22 @@
+version: '2'
+services:
+  postgres:
+    image: postgres:9.6.6-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - /opt/spmiadata/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "p0stgr@s"
+      POSTGRES_DB:       "eagle_eye_local"
+  postgres_dev:
+    image: postgres:9.6.6-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - /opt/spmiadata/postgres_dev:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "postgres_dev"
+      POSTGRES_PASSWORD: "p0stgr@s_dev"
+      POSTGRES_DB:       "eagle_eye_dev"
