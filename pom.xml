@@ -17,18 +17,43 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<!-- <version>1.4.4.RELEASE</version> -->
 		<version>1.5.9.RELEASE</version>
+		<!-- Spring Boot/Spring Cloud -->
+		<!-- 1.4.4.RELEASE => Camden.SR5 -->
+		<!-- 1.4.5.RELEASE => Camden.SR7 -->
+		<!-- 1.5.9.RELEASE => Edgware.RELEASE,Dalston.SR4 -->
 	</parent>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<modules>
 		<module>spmia-chapter1</module>
 		<module>spmia-chapter2</module>
+		<module>spmia-chapter3</module>
 	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Spring Boot/Spring Cloud -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<!-- <version>Camden.SR5</version> -->
+				<version>Dalston.SR4</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- Database -->
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>42.1.4</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
