@@ -131,3 +131,24 @@ $ docker-compose exec licensingservice ping database
 $ docker-compose stop
 ```
 
+## 第4章 服务发现
+```shell
+$ cd spmia-base/compose
+$ docker-compose up -d postgres
+$ docker-compose up -d postgres_dev
+```
+
+```shell
+$ cd spmia-chapter4/
+$ mvn package -DskipTests
+$
+$ java -jar confsvr/target/*.jar
+$ java -jar eurekasvr/target/*.jar
+$ java -jar organization-service/target/*.jar
+$ java -jar licensing-service/target/*.jar
+$
+$ mvn docker:build
+$ cd docker/common/
+$ docker-compose up -d
+```
+

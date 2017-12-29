@@ -18,9 +18,9 @@
 		<!-- <version>1.4.4.RELEASE</version> -->
 		<version>1.5.9.RELEASE</version>
 		<!-- Spring Boot/Spring Cloud -->
-		<!-- 1.4.4.RELEASE => Camden.SR5 -->
-		<!-- 1.4.5.RELEASE => Camden.SR7 -->
-		<!-- 1.5.9.RELEASE => Edgware.RELEASE,Dalston.SR4 -->
+		<!-- +[1.4.4.RELEASE => Camden.SR5] -->
+		<!-- +[1.4.5.RELEASE => Camden.SR7] -->
+		<!-- +[1.5.9.RELEASE => Edgware.RELEASE,Dalston.SR4] -->
 	</parent>
 
 	<properties>
@@ -33,6 +33,7 @@
 		<module>spmia-chapter1</module>
 		<module>spmia-chapter2</module>
 		<module>spmia-chapter3</module>
+		<module>spmia-chapter4</module>
 	</modules>
 
 	<dependencyManagement>
