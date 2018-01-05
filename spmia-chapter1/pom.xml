@@ -12,6 +12,13 @@
 	<name>spmia-chapter1</name>
 	<description>Parent Pom for the thoughtmechanix project</description>
 
+	<parent>
+		<groupId>com.thoughtmechanix</groupId>
+		<artifactId>spmia-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+
 	<modules>
 		<module>simpleservice</module>
 	</modules>

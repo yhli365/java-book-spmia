@@ -9,6 +9,13 @@
 	<artifactId>spmia-chapter3</artifactId>
 	<packaging>pom</packaging>
 
+	<parent>
+		<groupId>com.thoughtmechanix</groupId>
+		<artifactId>spmia-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+
 	<modules>
 		<module>confsvr</module>
 		<module>licensing-service</module>

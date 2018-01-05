@@ -23,6 +23,8 @@ Spring微服务实战(#迷途书童译)
 
 [pgAdmin](https://www.pgadmin.org/)
 
+[DBeaver](https://dbeaver.jkiss.org/)
+
 
 ## 部署
 ```shell
@@ -137,7 +139,6 @@ $ docker-compose stop
 ```shell
 $ cd spmia-base/compose
 $ docker-compose up -d postgres
-$ docker-compose up -d postgres_dev
 $ vi /etc/hosts
 10.10.8.11 database
 ```
@@ -158,3 +159,26 @@ $ docker-compose up -d
 $ docker-compose logs -f licensingservice
 ```
 
+## 第5章 服务发现
+```shell
+$ cd spmia-base/compose
+$ docker-compose up -d postgres
+$ vi /etc/hosts
+10.10.8.11 database
+```
+
+```shell
+$ cd spmia-chapter4/
+$ mvn package -DskipTests
+$
+$ java -jar confsvr/target/*.jar
+$ java -jar eurekasvr/target/*.jar
+$ java -jar organization-service/target/*.jar --server.port=8085
+$ java -jar organization-service/target/*.jar --server.port=8086
+$ java -jar licensing-service/target/*.jar --server.port=8080
+$
+$ mvn docker:build
+$ cd docker/common/
+$ docker-compose up -d
+$ docker-compose logs -f licensingservice
+```
