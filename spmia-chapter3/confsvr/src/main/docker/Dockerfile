@@ -1,3 +1,4 @@
+#@Features(jce_policy)
 FROM johncarnell/spmia-jdk
 
 RUN mkdir -p /usr/local/configserver

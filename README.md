@@ -106,6 +106,8 @@ $ docker-compose –f docker/common/docker-compose.yml up
 $ cd spmia-base/compose
 $ docker-compose up -d postgres
 $ docker-compose up -d postgres_dev
+$ vi /etc/hosts
+10.10.8.11 database
 ```
 
 ```shell
@@ -136,6 +138,8 @@ $ docker-compose stop
 $ cd spmia-base/compose
 $ docker-compose up -d postgres
 $ docker-compose up -d postgres_dev
+$ vi /etc/hosts
+10.10.8.11 database
 ```
 
 ```shell
@@ -144,11 +148,13 @@ $ mvn package -DskipTests
 $
 $ java -jar confsvr/target/*.jar
 $ java -jar eurekasvr/target/*.jar
-$ java -jar organization-service/target/*.jar
-$ java -jar licensing-service/target/*.jar
+$ java -jar organization-service/target/*.jar --server.port=8085
+$ java -jar organization-service/target/*.jar --server.port=8086
+$ java -jar licensing-service/target/*.jar --server.port=8080
 $
 $ mvn docker:build
 $ cd docker/common/
 $ docker-compose up -d
+$ docker-compose logs -f licensingservice
 ```
 

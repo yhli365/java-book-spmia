@@ -1,12 +1,17 @@
 ############################################################
 # Dockerfile: [Spring Microservices in Action] Base Image
 # docker build -t johncarnell/spmia-jdk .
+# Usage:
+#   - #@Features(jce_policy)
+#   - FROM johncarnell/spmia-jdk
 ############################################################
 
 FROM openjdk:8u151-jdk-alpine
 #FROM openjdk:8-jdk-alpine
 
 RUN apk update && apk upgrade && apk add netcat-openbsd && apk add curl
+
+#@Features:jce_policy
 RUN echo $JAVA_HOME
 RUN cd /tmp/ && \
     curl -k -LO "http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip" -H 'Cookie: oraclelicense=accept-securebackup-cookie' && \
