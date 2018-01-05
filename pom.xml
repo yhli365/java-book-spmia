@@ -47,11 +47,21 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
 			<!-- Database -->
 			<dependency>
 				<groupId>org.postgresql</groupId>
 				<artifactId>postgresql</artifactId>
+				<!-- <version>9.1-901.jdbc4</version> (postgresql:postgresql) -->
 				<version>42.1.4</version>
+			</dependency>
+
+			<!-- Netflix -->
+			<dependency>
+				<groupId>com.netflix.hystrix</groupId>
+				<artifactId>hystrix-javanica</artifactId>
+				<!-- <version>1.5.9</version> -->
+				<version>1.5.12</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

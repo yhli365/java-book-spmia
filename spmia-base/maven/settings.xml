@@ -4,14 +4,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
-	<localRepository>/mnt/hgfs/yrepo/maven_repo</localRepository>
+	<localRepository>D:/yrepo/maven_repo</localRepository>
+	<!-- <localRepository>/mnt/hgfs/yrepo/maven_repo</localRepository> -->
+
 	<interactiveMode>true</interactiveMode>
 	<offline>false</offline>
-<!--
+
 	<pluginGroups>
-		<pluginGroup>yhli.maven.plugin</pluginGroup>
 	</pluginGroups>
--->
+
 	<proxies>
 	</proxies>
 
@@ -29,19 +30,44 @@
 	</servers>
 
 	<mirrors>
+		<mirror>
+			<id>aliyun</id>
+			<mirrorOf>central</mirrorOf>
+			<name>aliyun maven</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</mirror>
+		<mirror>
+			<id>central</id>
+			<mirrorOf>central</mirrorOf>
+			<name>Maven Repository Switchboard</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</mirror>
+		<mirror>
+			<id>repo2</id>
+			<mirrorOf>central</mirrorOf>
+			<name>Human Readable Name for this Mirror.</name>
+			<url>http://repo2.maven.org/maven2/</url>
+		</mirror>
+		<mirror>
+			<id>ibiblio</id>
+			<mirrorOf>central</mirrorOf>
+			<name>Human Readable Name for this Mirror.</name>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
+		</mirror>
+		<mirror>
+			<id>jboss-public-repository-group</id>
+			<mirrorOf>central</mirrorOf>
+			<name>JBoss Public Repository Group</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public</url>
+		</mirror>
 	</mirrors>
 
 	<profiles>
 		<profile>
 			<id>dev</id>
 			<repositories>
-				<!-- This should be at top, it makes maven try the central repo first and 
-					then others and hence faster dep resolution -->
-				<repository>
-					<id>central-mirror</id>
-					<name>OSChina Central</name>
-					<url>http://maven.oschina.net/content/groups/public/</url>
-				</repository>
+				<!-- This should be at top, it makes maven try the central repo first 
+					and then others and hence faster dep resolution -->
 
 				<repository>
 					<id>central</id>
@@ -76,13 +102,13 @@
 			</repositories>
 
 			<pluginRepositories>
-<!--
+
 				<pluginRepository>
-					<id>plugin-central-mirror</id>
-					<name>OSChina Central</name>
-					<url>http://maven.oschina.net/content/groups/public/</url>
+					<id>aliyun-plugin</id>
+					<name>aliyun maven</name>
+					<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
 				</pluginRepository>
--->
+
 			</pluginRepositories>
 		</profile>
 	</profiles>

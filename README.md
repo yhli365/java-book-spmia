@@ -159,7 +159,7 @@ $ docker-compose up -d
 $ docker-compose logs -f licensingservice
 ```
 
-## 第5章 服务发现
+## 第5章 坏事发生时：使用Spring Cloud和Netflix Hystrix的客户端弹性模式
 ```shell
 $ cd spmia-base/compose
 $ docker-compose up -d postgres
@@ -168,7 +168,7 @@ $ vi /etc/hosts
 ```
 
 ```shell
-$ cd spmia-chapter4/
+$ cd spmia-chapter5/
 $ mvn package -DskipTests
 $
 $ java -jar confsvr/target/*.jar
