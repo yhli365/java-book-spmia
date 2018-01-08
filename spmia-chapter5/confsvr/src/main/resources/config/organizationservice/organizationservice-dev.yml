@@ -1,4 +1,4 @@
-example.property: "I AM A DEV PROPERTY OVERRIDE"
+example.organization.property: "I AM A DEV ORGANIZATION SERVICE"
 
 #-----[DB Configuration]-------------------------
 spring.datasource.platform:  "mysql"
@@ -12,9 +12,4 @@ spring.datasource.validationQuery: "SELECT 1"
 #-----[JPA Configuration]------------------------
 spring.jpa.database: "MySQL"
 spring.jpa.show-sql: "true"
-#spring.jpa.generate-ddl: true  
-#spring.jpa.hibernate.ddl-auto: "update"
-#spring.jpa.database-platform: "org.hibernate.dialect.MySQL5Dialect"
-#spring.jpa.hibernate.naming-strategy: "org.hibernate.cfg.ImprovedNamingStrategy"
-#spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.MySQL5InnoDBDialect"
 spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.MySQL5Dialect"

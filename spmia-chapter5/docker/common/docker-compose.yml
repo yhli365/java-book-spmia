@@ -13,7 +13,7 @@ services:
          EUREKASERVER_PORT: "8761"
          ENCRYPT_KEY:       "IMSYMMETRIC"
   database:
-      image: postgres:9.5
+      image: postgres:9.6.6-alpine
       ports:
         - "5432:5432"
       environment:

@@ -16,7 +16,7 @@ public class UserContextInterceptor implements ClientHttpRequestInterceptor {
 	@Override
 	public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
 			throws IOException {
-		logger.info("intercept:--------------------");
+		logger.info("intercept# CORRELATION_ID: {}", UserContextHolder.getContext().getCorrelationId());
 
 		HttpHeaders headers = request.getHeaders();
 		headers.add(UserContext.CORRELATION_ID, UserContextHolder.getContext().getCorrelationId());
