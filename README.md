@@ -45,15 +45,10 @@ Apache Maven 3.5.2
 	<name>Spring Repository</name>
 	<url>http://repo.spring.io/release</url>
 </repository>
-mvn clean
+
 mvn eclipse:clean eclipse:eclipse -DdownloadSources=true
-mvn dependency:sources
-mvn dependency:tree
-mvn compile
-mvn test
-mvn package -DskipTests
-mvn spring-boot:run
-- http://127.0.0.1:8080/
+mvn clean package -DskipTests
+mvn docker:build
 ```
 
 ## 下载Docker镜像(使用阿里镜像加速器)
@@ -67,6 +62,7 @@ docker-compose version 1.18.0, build 8dd22a9
 ```shell
 docker pull openjdk:8u151-jdk-alpine
 docker pull postgres:9.6.6-alpine
+docker pull mysql:5.6.37
 docker rm $(docker ps --filter status=exited -q)
 docker rmi $(docker images --filter since=johncarnell/spmia-jdk -q)
 ```
@@ -75,6 +71,17 @@ docker rmi $(docker images --filter since=johncarnell/spmia-jdk -q)
 ```shell
 $ cd spmia-base/
 $ docker build -t johncarnell/spmia-jdk docker/
+$
+$ cd spmia-base/compose
+$ docker-compose up -d postgres
+$ docker-compose up -d mysql
+$
+$ vi /etc/hosts
+10.10.8.11 database
+```
+
+```mysql
+CREATE DATABASE eagle_eye_dev DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 ```
 
 
@@ -84,48 +91,50 @@ $ docker build -t johncarnell/spmia-jdk docker/
 ## 第1章 欢迎来到Cloud和Spring
 ```shell
 $ cd spmia-chapter1/
-# run jar
-$ mvn package -DskipTests
+$ mvn clean package -DskipTests
+$
 $ java -jar simpleservice/target/*.jar
 - http://localhost:8080/hello/john/carnell (Postman/RESTClient)
-# run docker
+```
+
+```shell
 $ mvn docker:build
-$ docker-compose –f docker/common/docker-compose.yml up
+$ cd docker/common/
+$ docker-compose up
 ```
 
 ## 第2章 使用Spring Boot构建微服务
 ```shell
 $ cd spmia-chapter2/
-$ mvn package -DskipTests
-$ java -jar licensing-service/target/*.jar
+$ mvn clean package -DskipTests
 $
+$ java -jar licensing-service/target/*.jar
+```
+
+```shell
 $ mvn docker:build
-$ docker-compose –f docker/common/docker-compose.yml up
+$ cd docker/common/
+$ docker-compose up
 ```
 
 ## 第3章 使用Spring Cloud Configuration Server控制配置
 ```shell
-$ cd spmia-base/compose
-$ docker-compose up -d postgres
-$ docker-compose up -d postgres_dev
-$ vi /etc/hosts
-10.10.8.11 database
-```
-
-```shell
 $ cd spmia-chapter3/
-$ mvn package -DskipTests
-$ export ENCRYPT_KEY="IMSYMMETRIC"
+$ mvn clean package -DskipTests
 $
+$ export ENCRYPT_KEY="IMSYMMETRIC"
 $ java -jar confsvr/target/*.jar
 $ java -jar confsvr/target/*.jar --spring.cloud.config.server.encrypt.enabled=false
 $ java -jar confsvr/target/*.jar --spring.profiles.active=gitrepo
 $
 $ java -jar licensing-service/target/*.jar
+$
 $ java -Dspring.cloud.config.uri=http://localhost:8888 \
   -Dspring.profiles.active=dev \
   -jar licensing-service/target/*.jar
-$
+```
+
+```shell
 $ mvn docker:build
 $ cd docker/common/
 $ cd docker/dev/
@@ -137,22 +146,17 @@ $ docker-compose stop
 
 ## 第4章 服务发现
 ```shell
-$ cd spmia-base/compose
-$ docker-compose up -d postgres
-$ vi /etc/hosts
-10.10.8.11 database
-```
-
-```shell
 $ cd spmia-chapter4/
-$ mvn package -DskipTests
+$ mvn clean package -DskipTests
 $
 $ java -jar confsvr/target/*.jar
 $ java -jar eurekasvr/target/*.jar
 $ java -jar organization-service/target/*.jar --server.port=8085
 $ java -jar organization-service/target/*.jar --server.port=8086
 $ java -jar licensing-service/target/*.jar --server.port=8080
-$
+```
+
+```shell
 $ mvn docker:build
 $ cd docker/common/
 $ docker-compose up -d
@@ -161,22 +165,16 @@ $ docker-compose logs -f licensingservice
 
 ## 第5章 坏事发生时：使用Spring Cloud和Netflix Hystrix的客户端弹性模式
 ```shell
-$ cd spmia-base/compose
-$ docker-compose up -d postgres
-$ vi /etc/hosts
-10.10.8.11 database
+$ cd spmia-chapter5/
+$ mvn clean package -DskipTests
+$
+$ java -jar eurekasvr/target/*.jar
+$ java -jar confsvr/target/*.jar
+$ java -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
+$ java -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
 ```
 
 ```shell
-$ cd spmia-chapter5/
-$ mvn package -DskipTests
-$
-$ java -jar confsvr/target/*.jar
-$ java -jar eurekasvr/target/*.jar
-$ java -jar organization-service/target/*.jar --server.port=8085
-$ java -jar organization-service/target/*.jar --server.port=8086
-$ java -jar licensing-service/target/*.jar --server.port=8080
-$
 $ mvn docker:build
 $ cd docker/common/
 $ docker-compose up -d

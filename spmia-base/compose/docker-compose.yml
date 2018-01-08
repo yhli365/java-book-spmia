@@ -10,13 +10,14 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "p0stgr@s"
       POSTGRES_DB:       "eagle_eye_local"
-  postgres_dev:
-    image: postgres:9.6.6-alpine
+  mysql:
+    image: mysql:5.6.37
     ports:
-      - "5432:5432"
+      - "3306:3306"
 #    volumes:
-#      - /opt/spmiadata/postgres_dev:/var/lib/postgresql/data
+#      - /opt/spmiadata/mysql:/var/lib/mysql
     environment:
-      POSTGRES_USER: "postgres_dev"
-      POSTGRES_PASSWORD: "p0stgr@s_dev"
-      POSTGRES_DB:       "eagle_eye_dev"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "eagle_eye_dev"
+#      MYSQL_USER: "eagle"
+#      MYSQL_PASSWORD: "eaglepwd"
