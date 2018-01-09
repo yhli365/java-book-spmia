@@ -180,3 +180,24 @@ $ cd docker/common/
 $ docker-compose up -d
 $ docker-compose logs -f licensingservice
 ```
+
+## 第6章 使用Spring Cloud和Zuul进行服务路由
+```shell
+$ cd spmia-chapter6/
+$ mvn clean package -DskipTests
+$
+$ java -jar eurekasvr/target/*.jar
+$ java -jar confsvr/target/*.jar
+$ java -jar zuulsvr/target/*.jar
+$ java -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
+$ java -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
+$ java -jar orgservice-new/target/*.jar --server.port=8087 --spring.profiles.active=dev
+$ java -jar specialroutes-service/target/*.jar --server.port=8910 --spring.profiles.active=dev
+```
+
+```shell
+$ mvn docker:build
+$ cd docker/common/
+$ docker-compose up -d
+$ docker-compose logs -f licensingservice
+```
