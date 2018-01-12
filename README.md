@@ -30,6 +30,7 @@ Spring微服务实战(#迷途书童译)
 ```shell
 $ vi ~/.bash_profile
 export JAVA_HOME=/opt/jdk1.8.0_151
+export JAVA_OPTS=-Xmx100m
 export M2_HOME=/opt/apache-maven-3.5.2
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 $ java -version
@@ -72,6 +73,8 @@ docker rmi $(docker images --filter since=johncarnell/spmia-jdk -q)
 $ cd spmia-base/
 $ docker build -t johncarnell/spmia-jdk docker/
 $
+# Profile为default时使用postgres数据库，通过docker运行。
+# Profile为dev时使用mysql数据库，通过手动执行java进程运行。
 $ cd spmia-base/compose
 $ docker-compose up -d postgres
 $ docker-compose up -d mysql
@@ -93,7 +96,7 @@ CREATE DATABASE eagle_eye_dev DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 $ cd spmia-chapter1/
 $ mvn clean package -DskipTests
 $
-$ java -jar simpleservice/target/*.jar
+$ java $JAVA_OPTS -jar simpleservice/target/*.jar
 - http://localhost:8080/hello/john/carnell (Postman/RESTClient)
 ```
 
@@ -108,7 +111,7 @@ $ docker-compose up
 $ cd spmia-chapter2/
 $ mvn clean package -DskipTests
 $
-$ java -jar licensing-service/target/*.jar
+$ java $JAVA_OPTS -jar licensing-service/target/*.jar
 ```
 
 ```shell
@@ -123,11 +126,11 @@ $ cd spmia-chapter3/
 $ mvn clean package -DskipTests
 $
 $ export ENCRYPT_KEY="IMSYMMETRIC"
-$ java -jar confsvr/target/*.jar
-$ java -jar confsvr/target/*.jar --spring.cloud.config.server.encrypt.enabled=false
-$ java -jar confsvr/target/*.jar --spring.profiles.active=gitrepo
+$ java $JAVA_OPTS -jar confsvr/target/*.jar
+$ java $JAVA_OPTS -jar confsvr/target/*.jar --spring.cloud.config.server.encrypt.enabled=false
+$ java $JAVA_OPTS -jar confsvr/target/*.jar --spring.profiles.active=gitrepo
 $
-$ java -jar licensing-service/target/*.jar
+$ java $JAVA_OPTS -jar licensing-service/target/*.jar
 $
 $ java -Dspring.cloud.config.uri=http://localhost:8888 \
   -Dspring.profiles.active=dev \
@@ -149,11 +152,11 @@ $ docker-compose stop
 $ cd spmia-chapter4/
 $ mvn clean package -DskipTests
 $
-$ java -jar confsvr/target/*.jar
-$ java -jar eurekasvr/target/*.jar
-$ java -jar organization-service/target/*.jar --server.port=8085
-$ java -jar organization-service/target/*.jar --server.port=8086
-$ java -jar licensing-service/target/*.jar --server.port=8080
+$ java $JAVA_OPTS -jar confsvr/target/*.jar
+$ java $JAVA_OPTS -jar eurekasvr/target/*.jar
+$ java $JAVA_OPTS -jar organization-service/target/*.jar --server.port=8085
+$ java $JAVA_OPTS -jar organization-service/target/*.jar --server.port=8086
+$ java $JAVA_OPTS -jar licensing-service/target/*.jar --server.port=8080
 ```
 
 ```shell
@@ -168,10 +171,10 @@ $ docker-compose logs -f licensingservice
 $ cd spmia-chapter5/
 $ mvn clean package -DskipTests
 $
-$ java -jar eurekasvr/target/*.jar
-$ java -jar confsvr/target/*.jar
-$ java -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
-$ java -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar eurekasvr/target/*.jar
+$ java $JAVA_OPTS -jar confsvr/target/*.jar
+$ java $JAVA_OPTS -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
 ```
 
 ```shell
@@ -186,18 +189,17 @@ $ docker-compose logs -f licensingservice
 $ cd spmia-chapter6/
 $ mvn clean package -DskipTests
 $
-$ java -jar eurekasvr/target/*.jar
-$ java -jar confsvr/target/*.jar
-$ java -jar zuulsvr/target/*.jar
-$ java -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
-$ java -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
-$ java -jar orgservice-new/target/*.jar --server.port=8087 --spring.profiles.active=dev
-$ java -jar specialroutes-service/target/*.jar --server.port=8910 --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar eurekasvr/target/*.jar
+$ java $JAVA_OPTS -jar confsvr/target/*.jar
+$ java $JAVA_OPTS -jar zuulsvr/target/*.jar --management.security.enabled=false --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar orgservice-new/target/*.jar --server.port=8087 --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar specialroutes-service/target/*.jar --server.port=8910 --spring.profiles.active=dev
 ```
 
 ```shell
 $ mvn docker:build
 $ cd docker/common/
 $ docker-compose up -d
-$ docker-compose logs -f licensingservice
 ```

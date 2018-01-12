@@ -35,6 +35,8 @@
 		<module>spmia-chapter2</module>
 		<module>spmia-chapter3</module>
 		<module>spmia-chapter4</module>
+		<module>spmia-chapter5</module>
+		<module>spmia-chapter6</module>
 	</modules>
 
 	<dependencyManagement>

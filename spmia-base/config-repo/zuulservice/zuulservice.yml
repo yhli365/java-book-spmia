@@ -1,0 +1,24 @@
+#1.通过服务发现自动映射路由
+#ignored-services属性设置为*，以排除所有基于eureka 服务ID 路由的注册。
+zuul.ignored-services: "*"
+#定义的服务将以/api 为前缀
+zuul.prefix:  /api
+#2.通过服务发现手动映射路由
+zuul.routes.organizationservice: /organization/**
+zuul.routes.licensingservice: /licensing/**
+zuul.routes.authenticationservice: /auth/**
+#3.使用静态URL手动映射路由
+#zuul.routes.licensestatic.path: /licensestatic/**
+#zuul.routes.licensestatic.url:  http://licenseservice-static:8081
+#zuul.routes.licensestatic.serviceId: licensestatic
+#zuul.routes.licensestatic.ribbon.listOfServers: http://licenseservice-static1:8081, http://licenseservice-static2:8082
+#ribbon.eureka.enabled: false
+#5.服务超时
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2500
+#注意：配置的时间超过5秒，你必须同时设置Hystrix和Ribbon的超时时间。
+hystrix.command.licensingservice.execution.isolation.thread.timeoutInMilliseconds: 7000
+licensingservice.ribbon.ReadTimeout: 7000
+#其他
+zuul.sensitiveHeaders: Cookie,Set-Cookie
+zuul.debug.request: true
+signing.key: "345345fsdfsf5345"
