@@ -207,7 +207,7 @@ $ cd docker/common/
 $ docker-compose up -d
 ```
 
-## 第6章 使用Spring Cloud和Zuul进行服务路由
+## 第7章 微服务安全
 ```shell
 $ cd spmia-chapter7/
 $ mvn clean package -DskipTests
@@ -217,11 +217,12 @@ $ vi /etc/hosts
 $
 $ java $JAVA_OPTS -jar eurekasvr/target/*.jar
 $ java $JAVA_OPTS -jar confsvr/target/*.jar
-$ java $JAVA_OPTS -jar zuulsvr/target/*.jar --management.security.enabled=false --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar authentication-service/target/*.jar --server.port=8901 --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar orgservice-new/target/*.jar --server.port=8087 --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar specialroutes-service/target/*.jar --server.port=8910 --spring.profiles.active=dev
-$ java $JAVA_OPTS -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar zuulsvr/target/*.jar --management.security.enabled=false --spring.profiles.active=dev
 ```
 
 ```shell
