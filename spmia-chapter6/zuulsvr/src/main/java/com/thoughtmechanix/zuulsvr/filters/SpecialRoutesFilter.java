@@ -39,6 +39,7 @@ import org.springframework.web.client.RestTemplate;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.thoughtmechanix.zuulsvr.model.AbTestingRoute;
+import com.thoughtmechanix.zuulsvr.utils.LogUtils;
 
 @Component
 public class SpecialRoutesFilter extends ZuulFilter {
@@ -206,22 +207,32 @@ public class SpecialRoutesFilter extends ZuulFilter {
 		RequestContext ctx = RequestContext.getCurrentContext();
 
 		AbTestingRoute abTestRoute = getAbRoutingInfo(filterUtils.getServiceId());
-		logger.debug("run# abTestRoute: {service_name=" + abTestRoute.getServiceName() + ", active="
-				+ abTestRoute.getActive() + ", weigth=" + abTestRoute.getWeight() + ", endpoint="
-				+ abTestRoute.getEndpoint() + "}");
+		if (abTestRoute != null) {
+			logger.debug("run# abTestRoute: {service_name=" + abTestRoute.getServiceName() + ", active="
+					+ abTestRoute.getActive() + ", weigth=" + abTestRoute.getWeight() + ", endpoint="
+					+ abTestRoute.getEndpoint() + "}");
+		}
 
 		if (abTestRoute != null && useSpecialRoute(abTestRoute)) {
 			String route = buildRouteString(ctx.getRequest().getRequestURI(), abTestRoute.getEndpoint(),
 					ctx.get("serviceId").toString());
 			logger.debug("run# forward={}", route);
-			forwardToSpecialRoute(route);
+			// forwardToSpecialRoute(route);
+			forwardToSpecialRoute2(route);
 		}
-
 		logger.debug("run# [{}] ====================", filterUtils.getServiceId());
 		return null;
 	}
 
-	private void forwardToSpecialRoute(String route) {
+	protected void forwardToSpecialRoute2(String route) {
+		try {
+			RequestContext.getCurrentContext().getResponse().sendRedirect(route);
+		} catch (IOException e) {
+			logger.error("forwardToSpecialRoute2# forward error: " + route, e);
+		}
+	}
+
+	protected void forwardToSpecialRoute(String route) {
 		RequestContext context = RequestContext.getCurrentContext();
 		HttpServletRequest request = context.getRequest();
 
@@ -241,6 +252,7 @@ public class SpecialRoutesFilter extends ZuulFilter {
 			httpClient = HttpClients.createDefault();
 			response = forward(httpClient, verb, route, request, headers, params, requestEntity);
 			setResponse(response);
+			logger.debug("forwardToSpecialRoute# Response={}", LogUtils.logResponse(response));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 

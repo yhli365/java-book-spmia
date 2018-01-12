@@ -189,13 +189,16 @@ $ docker-compose logs -f licensingservice
 $ cd spmia-chapter6/
 $ mvn clean package -DskipTests
 $
+$ vi /etc/hosts
+127.0.0.1 orgservice-new
+$
 $ java $JAVA_OPTS -jar eurekasvr/target/*.jar
 $ java $JAVA_OPTS -jar confsvr/target/*.jar
 $ java $JAVA_OPTS -jar zuulsvr/target/*.jar --management.security.enabled=false --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar orgservice-new/target/*.jar --server.port=8087 --spring.profiles.active=dev
-$ java $JAVA_OPTS -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar specialroutes-service/target/*.jar --server.port=8910 --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
 ```
 
 ```shell
