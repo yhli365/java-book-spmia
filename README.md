@@ -25,6 +25,8 @@ Spring微服务实战(#迷途书童译)
 
 [DBeaver](https://dbeaver.jkiss.org/)
 
+[JSON Web Token](https://www.jsonwebtoken.io/)
+
 
 ## 部署
 ```shell
@@ -210,6 +212,7 @@ $ docker-compose up -d
 ## 第7章 微服务安全
 ```shell
 $ cd spmia-chapter7/
+$ cd spmia-chapter7-JWT/
 $ mvn clean package -DskipTests
 $
 $ vi /etc/hosts

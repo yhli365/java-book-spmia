@@ -38,6 +38,10 @@
 		<module>spmia-chapter5</module>
 		<module>spmia-chapter6</module>
 		<module>spmia-chapter7</module>
+		<module>spmia-chapter7-JWT</module>
+		<module>spmia-chapter8</module>
+		<module>spmia-chapter9</module>
+		<module>spmia-chapter10</module>
 	</modules>
 
 	<dependencyManagement>
