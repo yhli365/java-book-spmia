@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.netflix.zuul.ZuulFilter;
-import com.netflix.zuul.context.RequestContext;
-import com.thoughtmechanix.zuulsvr.config.ServiceConfig;
 
 @Component
 public class TrackingFilter extends ZuulFilter {
@@ -18,9 +16,6 @@ public class TrackingFilter extends ZuulFilter {
 
 	@Autowired
 	private FilterUtils filterUtils;
-
-	@Autowired
-	private ServiceConfig serviceConfig;
 
 	@Override
 	public String filterType() {
@@ -50,7 +45,7 @@ public class TrackingFilter extends ZuulFilter {
 
 	public Object run() {
 
-		RequestContext ctx = RequestContext.getCurrentContext();
+		// RequestContext ctx = RequestContext.getCurrentContext();
 
 		if (isCorrelationIdPresent()) {
 			logger.debug("tmx-correlation-id found in tracking filter: {}. ", filterUtils.getCorrelationId());
