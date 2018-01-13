@@ -3,6 +3,8 @@ package com.thoughtmechanix.authentication.security;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -13,6 +15,8 @@ import com.thoughtmechanix.authentication.model.UserOrganization;
 import com.thoughtmechanix.authentication.repository.OrgUserRepository;
 
 public class JWTTokenEnhancer implements TokenEnhancer {
+	private static final Logger logger = LoggerFactory.getLogger(JWTTokenEnhancer.class);
+
 	@Autowired
 	private OrgUserRepository orgUserRepo;
 
@@ -27,6 +31,7 @@ public class JWTTokenEnhancer implements TokenEnhancer {
 		String orgId = getOrgId(authentication.getName());
 
 		additionalInfo.put("organizationId", orgId);
+		logger.debug("enhance# user={}, orgId={}", authentication.getName(), orgId);
 
 		((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
 		return accessToken;

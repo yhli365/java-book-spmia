@@ -1,12 +1,14 @@
 spring:
   application:
-    name: organizationservice
+    #name: organizationservice
+    name: orgservice-new
   profiles:
     active:
       default
   cloud:
     config:
       enabled: true
+      name: organizationservice
 
 #Setting the logging levels for the service
 logging:

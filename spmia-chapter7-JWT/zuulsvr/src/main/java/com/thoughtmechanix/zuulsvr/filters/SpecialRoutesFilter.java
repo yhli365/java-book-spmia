@@ -23,6 +23,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicHttpRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.filters.ProxyRequestHelper;
 import org.springframework.http.HttpMethod;
@@ -40,6 +42,8 @@ import com.thoughtmechanix.zuulsvr.model.AbTestingRoute;
 
 @Component
 public class SpecialRoutesFilter extends ZuulFilter {
+	private static final Logger logger = LoggerFactory.getLogger(SpecialRoutesFilter.class);
+
 	private static final int FILTER_ORDER = 1;
 	private static final boolean SHOULD_FILTER = false;
 
@@ -198,6 +202,7 @@ public class SpecialRoutesFilter extends ZuulFilter {
 
 	@Override
 	public Object run() {
+		logger.debug("run# [{}] ++++++++++", filterUtils.getServiceId());
 		RequestContext ctx = RequestContext.getCurrentContext();
 
 		AbTestingRoute abTestRoute = getAbRoutingInfo(filterUtils.getServiceId());
@@ -205,13 +210,24 @@ public class SpecialRoutesFilter extends ZuulFilter {
 		if (abTestRoute != null && useSpecialRoute(abTestRoute)) {
 			String route = buildRouteString(ctx.getRequest().getRequestURI(), abTestRoute.getEndpoint(),
 					ctx.get("serviceId").toString());
-			forwardToSpecialRoute(route);
+			logger.debug("run# forward={}", route);
+			// forwardToSpecialRoute(route);
+			forwardToSpecialRoute2(route);
 		}
 
+		logger.debug("run# [{}] ----------", filterUtils.getServiceId());
 		return null;
 	}
 
-	private void forwardToSpecialRoute(String route) {
+	protected void forwardToSpecialRoute2(String route) {
+		try {
+			RequestContext.getCurrentContext().getResponse().sendRedirect(route);
+		} catch (IOException e) {
+			logger.error("forwardToSpecialRoute2# forward error: " + route, e);
+		}
+	}
+
+	protected void forwardToSpecialRoute(String route) {
 		RequestContext context = RequestContext.getCurrentContext();
 		HttpServletRequest request = context.getRequest();
 
