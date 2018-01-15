@@ -25,7 +25,7 @@ services:
       EUREKASERVER_PORT:   "8761"
       CONFIGSERVER_PORT:   "8888"
   database:
-    image: postgres:9.5
+    image: postgres:9.6.6-alpine
     ports:
       - "5432:5432"
     environment:
@@ -68,7 +68,7 @@ services:
       KAFKASERVER_PORT:    "2181"
       ENCRYPT_KEY:       "IMSYMMETRIC"
   redis:
-    image: redis:alpine
+    image: redis:3.2.11-alpine
     ports:
       - 6379:6379
   kafkaserver:

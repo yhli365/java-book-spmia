@@ -29,7 +29,13 @@ Spring微服务实战(#迷途书童译)
 
 [Redis](https://redis.io/)
 
+[Jedis](https://github.com/xetorthio/jedis)
+
 [Kafka](https://kafka.apache.org/)
+
+[Papertrail](https://papertrailapp.com/)
+
+[Zipkin](https://zipkin.io/)
 
 
 ## 部署
@@ -70,6 +76,8 @@ docker-compose version 1.18.0, build 8dd22a9
 docker pull openjdk:8u151-jdk-alpine
 docker pull postgres:9.6.6-alpine
 docker pull mysql:5.6.37
+docker pull redis:3.2.11-alpine
+docker pull spotify/kafka
 docker rm $(docker ps --filter status=exited -q)
 docker rmi $(docker images --filter since=johncarnell/spmia-jdk -q)
 ```
@@ -84,9 +92,12 @@ $
 $ cd spmia-base/compose
 $ docker-compose up -d postgres
 $ docker-compose up -d mysql
+$ docker-compose up -d redis
+$ docker-compose up -d kafkaserver
 $
 $ vi /etc/hosts
-10.10.8.11 database
+10.10.8.11 database redis kafkaserver
+127.0.0.1  orgservice-new
 ```
 
 ```mysql
@@ -195,9 +206,6 @@ $ docker-compose logs -f licensingservice
 $ cd spmia-chapter6/
 $ mvn clean package -DskipTests
 $
-$ vi /etc/hosts
-127.0.0.1 orgservice-new
-$
 $ java $JAVA_OPTS -jar eurekasvr/target/*.jar
 $ java $JAVA_OPTS -jar confsvr/target/*.jar
 $ java $JAVA_OPTS -jar zuulsvr/target/*.jar --management.security.enabled=false --spring.profiles.active=dev
@@ -219,9 +227,6 @@ $ cd spmia-chapter7/
 $ cd spmia-chapter7-JWT/
 $ mvn clean package -DskipTests
 $
-$ vi /etc/hosts
-127.0.0.1 orgservice-new
-$
 $ java $JAVA_OPTS -jar eurekasvr/target/*.jar
 $ java $JAVA_OPTS -jar confsvr/target/*.jar
 $ java $JAVA_OPTS -jar authentication-service/target/*.jar --server.port=8901 --spring.profiles.active=dev
@@ -241,6 +246,24 @@ $ docker-compose up -d
 ## 第8章 Spring Cloud Stream的事件驱劢架构
 ```shell
 $ cd spmia-chapter8/
+$ mvn clean package -DskipTests
+$
+$ java $JAVA_OPTS -jar eurekasvr/target/*.jar
+$ java $JAVA_OPTS -jar confsvr/target/*.jar
+$ java $JAVA_OPTS -jar zuulsvr/target/*.jar --management.security.enabled=false --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
+$ java $JAVA_OPTS -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
+```
+
+```shell
+$ mvn docker:build
+$ cd docker/common/
+$ docker-compose up -d
+```
+
+## 第9章 使用Spring Cloud Sleuth和Zipkin进行分布式跟踪
+```shell
+$ cd spmia-chapter9/
 $ mvn clean package -DskipTests
 $
 $ java $JAVA_OPTS -jar eurekasvr/target/*.jar

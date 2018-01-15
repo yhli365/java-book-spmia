@@ -198,6 +198,11 @@ public class SpecialRoutesFilter extends ZuulFilter {
 
 	@Override
 	public Object run() {
+		System.out.println("run# nothing to do.");
+		return null;
+	}
+
+	public Object run2() {
 		RequestContext ctx = RequestContext.getCurrentContext();
 
 		AbTestingRoute abTestRoute = getAbRoutingInfo(filterUtils.getServiceId());

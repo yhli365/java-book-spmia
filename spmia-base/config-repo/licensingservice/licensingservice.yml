@@ -9,6 +9,23 @@ spring.datasource.password: "{cipher}4788dfe1ccbe6485934aec2ffeddb06163ea3d616df
 spring.datasource.testWhileIdle: "true"
 spring.datasource.validationQuery: "SELECT 1"
 spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialect"
+
+# oauth2
+signing.key: "345345fsdfsf5345"
+
+# redis
 redis.server: "redis"
 redis.port: "6379"
-signing.key: "345345fsdfsf5345"
+
+# kafka binder
+spring.cloud.stream.kafka.binder.brokers: "kafkaserver:9092"
+spring.cloud.stream.kafka.binder.zk-nodes: "kafkaserver:2181"
+spring.cloud.stream.kafka.binder.minPartitionCount: "1"
+spring.cloud.stream.kafka.binder.autoCreateTopics: "true"
+spring.cloud.stream.kafka.binder.autoAddPartitions: "true"
+# 供消费者使用， 输入通道定义
+spring.cloud.stream.bindings.inboundOrgChanges.destination: "orgChangeTopic"
+spring.cloud.stream.bindings.inboundOrgChanges.content-type: "application/json"
+spring.cloud.stream.bindings.inboundOrgChanges.group: "licensingGroup" 
+#spring.cloud.stream.bindings.inboundOrgChanges.consumer.concurrency: "1"
+#spring.cloud.stream.bindings.inboundOrgChanges.consumer.partitioned: "false"

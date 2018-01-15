@@ -1,6 +1,7 @@
 version: '2'
 services:
   postgres:
+#    image: postgres:9.5
     image: postgres:9.6.6-alpine
     ports:
       - "5432:5432"
@@ -21,3 +22,16 @@ services:
       MYSQL_DATABASE: "eagle_eye_dev"
 #      MYSQL_USER: "eagle"
 #      MYSQL_PASSWORD: "eaglepwd"
+  redis:
+#    image: redis:alpine
+    image: redis:3.2.11-alpine
+    ports:
+      - 6379:6379
+  kafkaserver:
+    image: spotify/kafka
+    ports:
+      - 2181:2181
+      - 9092:9092
+    environment:
+      ADVERTISED_HOST: "10.10.8.11"
+      CONSUMER_THREADS: "1"

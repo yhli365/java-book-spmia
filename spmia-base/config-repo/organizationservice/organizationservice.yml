@@ -8,4 +8,23 @@ spring.datasource.password: "{cipher}4788dfe1ccbe6485934aec2ffeddb06163ea3d616df
 spring.datasource.testWhileIdle: "true"
 spring.datasource.validationQuery: "SELECT 1"
 spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialect"
+
+# oauth2
 signing.key: "345345fsdfsf5345"
+
+# kafka binder
+spring.cloud.stream.kafka.binder.brokers: "kafkaserver:9092"
+spring.cloud.stream.kafka.binder.zk-nodes: "kafkaserver:2181"
+spring.cloud.stream.kafka.binder.minPartitionCount: "1"
+spring.cloud.stream.kafka.binder.autoCreateTopics: "true"
+spring.cloud.stream.kafka.binder.autoAddPartitions: "true"
+# 供生产者使用，输出通道定义
+spring.cloud.stream.bindings.output.destination: "orgChangeTopic"
+spring.cloud.stream.bindings.output.content-type: "application/json"
+#spring.cloud.stream.bindings.output.producer.partitionCount: "1"
+
+#Setting logging levels
+logging.level.com.netflix: WARN
+logging.level.org.springframework.web: WARN
+logging.level.com.thoughtmechanix: DEBUG
+logging.level.org.apache.kafka: DEBUG
