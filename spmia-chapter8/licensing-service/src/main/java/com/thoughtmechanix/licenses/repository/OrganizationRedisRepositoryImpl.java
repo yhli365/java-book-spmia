@@ -13,15 +13,15 @@ import com.thoughtmechanix.licenses.model.Organization;
 public class OrganizationRedisRepositoryImpl implements OrganizationRedisRepository {
 	private static final String HASH_NAME = "organization";
 
-	private RedisTemplate redisTemplate;
-	private HashOperations hashOperations;
+	private RedisTemplate<String, Object> redisTemplate;
+	private HashOperations<String, String, Organization> hashOperations;
 
 	public OrganizationRedisRepositoryImpl() {
 		super();
 	}
 
 	@Autowired
-	private OrganizationRedisRepositoryImpl(RedisTemplate redisTemplate) {
+	private OrganizationRedisRepositoryImpl(RedisTemplate<String, Object> redisTemplate) {
 		this.redisTemplate = redisTemplate;
 	}
 
