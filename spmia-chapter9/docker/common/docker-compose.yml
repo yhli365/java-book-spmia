@@ -80,7 +80,8 @@ services:
       ZIPKIN_PORT:         "9411"
       ENCRYPT_KEY:       "IMSYMMETRIC"
   redis:
-    image: redis:alpine
+#    image: redis:alpine
+    image: redis:3.2.11-alpine
     ports:
       - 6379:6379
   kafkaserver:
