@@ -5,8 +5,6 @@ Spring Microservices in Action(201706,ISBN:9781617293986,John Carnell)
 Spring微服务实战(#迷途书童译)
 ```
 
-## 下载
-
 [Spring Microservices in Action](https://www.manning.com/books/spring-microservices-in-action)
 
 [Source code in GitHub](https://github.com/carnellj/spmia_overview)
@@ -18,6 +16,8 @@ Spring微服务实战(#迷途书童译)
 [Spring Initializr](http://start.spring.io/)
 
 [Postman](https://www.getpostman.com/)
+
+[Docker](https://www.docker.com/)
 
 [Docker Hub](https://hub.docker.com/)
 
@@ -37,6 +37,23 @@ Spring微服务实战(#迷途书童译)
 
 [Zipkin](https://zipkin.io/)
 
+[Amazon AWS](https://aws.amazon.com/console/)
+
+[Netflix Chaos Monkey](https://github.com/Netflix/chaosmonkey)
+
+[GitHub](https://github.com/)
+
+[Travis CI](https://www.travis-ci.org/)
+
+[Jenkins](https://jenkins.io)
+
+[Maven/Spotify Docker Plugin](https://github.com/spotify/docker-maven-plugin)
+
+[Python](https://python.org)
+
+
+# Prerequisites
+=============================
 
 ## 部署
 ```shell
@@ -64,7 +81,7 @@ mvn clean package -DskipTests
 mvn docker:build
 ```
 
-## 下载Docker镜像(使用阿里镜像加速器)
+## 下载Docker镜像
 ```shell
 $ docker version         
  Version:      17.05.0-ce
@@ -100,7 +117,8 @@ $ vi /etc/hosts
 127.0.0.1  orgservice-new
 ```
 
-```mysql
+```
+# mysql scripts
 CREATE DATABASE eagle_eye_dev DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 ```
 
@@ -280,3 +298,12 @@ $ mvn docker:build
 $ cd docker/common/
 $ docker-compose up -d
 ```
+
+## 第10章 部署微服务
+
+java-book-spmia-chapter10.git
+
+## 附录A：在桌面上运行云
+
+## 附录B：OAuth2授权类型
+
