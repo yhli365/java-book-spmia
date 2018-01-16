@@ -29,3 +29,7 @@ spring.cloud.stream.bindings.inboundOrgChanges.content-type: "application/json"
 spring.cloud.stream.bindings.inboundOrgChanges.group: "licensingGroup" 
 #spring.cloud.stream.bindings.inboundOrgChanges.consumer.concurrency: "1"
 #spring.cloud.stream.bindings.inboundOrgChanges.consumer.partitioned: "false"
+
+# sleuth
+#spring.sleuth.sampler.percentage: 1
+spring.zipkin.baseUrl: "http://localhost:9411"

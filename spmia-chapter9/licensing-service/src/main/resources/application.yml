@@ -1,19 +1,19 @@
-spring:
+#spring:
 #    sleuth:
 #      sampler:
 #         percentage:  1
-  zipkin:
-    baseUrl:  localhost:9411
-  cloud:
-    stream:
-      bindings:
-        inboundOrgChanges:
-          destination: orgChangeTopic
-          content-type: application/json
-          group: licensingGroup
-        binder:
-          zkNodes: localhost
-          brokers: localhost
+#  zipkin:
+#    baseUrl:  localhost:9411
+#  cloud:
+#    stream:
+#      bindings:
+#        inboundOrgChanges:
+#          destination: orgChangeTopic
+#          content-type: application/json
+#          group: licensingGroup
+#        binder:
+#          zkNodes: localhost
+#          brokers: localhost
 
 
 #        input:

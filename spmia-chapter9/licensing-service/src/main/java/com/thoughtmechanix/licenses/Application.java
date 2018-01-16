@@ -41,6 +41,7 @@ public class Application {
 
 	@Bean
 	public Sampler defaultSampler() {
+		logger.debug("defaultSampler#-----");
 		return new AlwaysSampler();
 	}
 

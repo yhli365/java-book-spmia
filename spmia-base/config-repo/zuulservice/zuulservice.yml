@@ -22,3 +22,7 @@ licensingservice.ribbon.ReadTimeout: 7000
 zuul.sensitiveHeaders: Cookie,Set-Cookie
 zuul.debug.request: true
 signing.key: "345345fsdfsf5345"
+
+# sleuth
+#spring.sleuth.sampler.percentage: 1
+spring.zipkin.baseUrl: "http://localhost:9411"

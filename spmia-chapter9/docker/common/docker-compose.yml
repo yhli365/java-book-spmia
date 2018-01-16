@@ -33,7 +33,7 @@ services:
       CONFIGSERVER_PORT:   "8888"
       ZIPKIN_PORT:         "9411"
   database:
-    image: postgres:9.5
+    image: postgres:9.6.6-alpine
     ports:
       - "5432:5432"
     environment:
@@ -88,14 +88,17 @@ services:
     ports:
       - 2181:2181
       - 9092:9092
-#  This is the openzipkin server.
+# This is the openzipkin server.
   # zipkin:
   #   image: openzipkin/zipkin
   #   ports:
   #     - 9411:9411
-  #Attention:  Replace the value in the “command” attribute with the value supplied to you from Papertrail
+
+# Attention:  Replace the value in the “command” attribute with the value supplied to you from Papertrail
   logspout:
-    image: gliderlabs/logspout
-    command: syslog://logs5.papertrailapp.com:51601
+    #image: gliderlabs/logspout
+    image: gliderlabs/logspout:v3.2.3
+    #command: syslog://logs5.papertrailapp.com:51601
+    command: syslog://logs6.papertrailapp.com:28229
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock

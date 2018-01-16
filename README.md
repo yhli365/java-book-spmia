@@ -268,9 +268,11 @@ $ mvn clean package -DskipTests
 $
 $ java $JAVA_OPTS -jar eurekasvr/target/*.jar
 $ java $JAVA_OPTS -jar confsvr/target/*.jar
+$ java $JAVA_OPTS -jar zipkinsvr/target/*.jar
 $ java $JAVA_OPTS -jar zuulsvr/target/*.jar --management.security.enabled=false --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
+http://localhost:9411/
 ```
 
 ```shell
