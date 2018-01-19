@@ -14,6 +14,7 @@ spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialec
 signing.key: "345345fsdfsf5345"
 # 配置oauth2 client，否则无法启动
 security.oauth2.client.client-id: "eagleeye"
+security.oauth2.resource.userInfoUri: "http://localhost:8901/auth/user"
 
 # redis
 redis.server: "redis"

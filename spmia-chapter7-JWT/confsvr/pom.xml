@@ -67,6 +67,27 @@
 							</resources>
 						</configuration>
 					</execution>
+					<execution>
+						<id>copy-resources-config</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/classes</outputDirectory>
+							<resources>
+								<resource>
+									<directory>../../spmia-base/config-repo</directory>
+									<excludes>
+										<exclude>backup/**</exclude>
+										<exclude>**/*.bak</exclude>
+									</excludes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>

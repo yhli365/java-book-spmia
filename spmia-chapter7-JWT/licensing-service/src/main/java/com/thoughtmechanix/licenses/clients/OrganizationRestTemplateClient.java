@@ -20,10 +20,12 @@ public class OrganizationRestTemplateClient {
 
 	public Organization getOrganization(String organizationId) {
 		logger.debug("In Licensing Service.getOrganization: {}", UserContextHolder.getContext().getCorrelationId());
+		logger.debug("getOrganization# token: {}", UserContextHolder.getContext().getAuthToken());
 
 		ResponseEntity<Organization> restExchange = //
 				restTemplate.exchange( //
-						"http://zuulserver:5555/api/organization/v1/organizations/{organizationId}", //
+						// "http://zuulserver:5555/api/organization/v1/organizations/{organizationId}",
+						"http://zuulservice/api/organization/v1/organizations/{organizationId}", //
 						HttpMethod.GET, null, //
 						Organization.class, organizationId);
 

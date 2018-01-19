@@ -24,7 +24,7 @@ public class JWTTokenStoreConfig {
 	}
 
 	@Bean
-	@Primary // @Primary注解被用来告诉Spring，如果有一个以上特定类型(像DefaultTokenService)的bean，使用标记为@Primary的bean类型进行自动注入。
+	@Primary
 	public DefaultTokenServices tokenServices() {
 		DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
 		defaultTokenServices.setTokenStore(tokenStore());

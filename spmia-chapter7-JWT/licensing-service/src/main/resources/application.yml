@@ -4,6 +4,9 @@ spring:
   profiles:
     active:
       default
+  cloud:
+    config:
+      enabled: true
 
 #security:
 #  oauth2:
