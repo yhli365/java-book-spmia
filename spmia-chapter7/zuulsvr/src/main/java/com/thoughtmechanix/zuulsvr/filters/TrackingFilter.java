@@ -44,7 +44,7 @@ public class TrackingFilter extends ZuulFilter {
 	}
 
 	public Object run() {
-
+		logger.debug("run#[{}]----------", filterUtils.getServiceId());
 		// RequestContext ctx = RequestContext.getCurrentContext();
 
 		if (isCorrelationIdPresent()) {
@@ -53,6 +53,7 @@ public class TrackingFilter extends ZuulFilter {
 			filterUtils.setCorrelationId(generateCorrelationId());
 			logger.debug("tmx-correlation-id generated in tracking filter: {}.", filterUtils.getCorrelationId());
 		}
+		logger.debug("Authentication token: {}", filterUtils.getAuthToken());
 
 		return null;
 	}

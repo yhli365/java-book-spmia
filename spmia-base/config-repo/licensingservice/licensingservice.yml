@@ -10,8 +10,10 @@ spring.datasource.testWhileIdle: "true"
 spring.datasource.validationQuery: "SELECT 1"
 spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialect"
 
-# oauth2
+# spring security oauth2
 signing.key: "345345fsdfsf5345"
+# 配置oauth2 client，否则无法启动
+security.oauth2.client.client-id: "eagleeye"
 
 # redis
 redis.server: "redis"
@@ -33,3 +35,6 @@ spring.cloud.stream.bindings.inboundOrgChanges.group: "licensingGroup"
 # sleuth
 #spring.sleuth.sampler.percentage: 1
 spring.zipkin.baseUrl: "http://localhost:9411"
+
+# 配置调试日志
+logging.level.org.springframework.security: DEBUG

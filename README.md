@@ -2,7 +2,7 @@
 =============================
 ```
 Spring Microservices in Action(201706,ISBN:9781617293986,John Carnell)
-Spring微服务实战(#迷途书童译)
+Spring微服务实战
 ```
 
 [Spring Microservices in Action](https://www.manning.com/books/spring-microservices-in-action)
@@ -59,9 +59,10 @@ Spring微服务实战(#迷途书童译)
 ```shell
 $ vi ~/.bash_profile
 export JAVA_HOME=/opt/jdk1.8.0_151
-export JAVA_OPTS=-Xmx100m
 export M2_HOME=/opt/apache-maven-3.5.2
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+export JAVA_OPTS=-Xmx100m
+export DOCKER_HOST=tcp://10.10.8.11:2375
 $ java -version
 java version "1.8.0_151"
 $ mvn -version
@@ -77,8 +78,8 @@ Apache Maven 3.5.2
 </repository>
 
 mvn eclipse:clean eclipse:eclipse -DdownloadSources=true
-mvn clean package -DskipTests
-mvn docker:build
+mvn spring-boot:run
+mvn clean package docker:build
 ```
 
 ## 下载Docker镜像
@@ -114,7 +115,7 @@ $ docker-compose up -d kafkaserver
 $
 $ vi /etc/hosts
 10.10.8.11 database redis kafkaserver
-127.0.0.1  orgservice-new
+127.0.0.1  orgservice-new zuulserver
 ```
 
 ```
@@ -247,12 +248,10 @@ $ mvn clean package -DskipTests
 $
 $ java $JAVA_OPTS -jar eurekasvr/target/*.jar
 $ java $JAVA_OPTS -jar confsvr/target/*.jar
+$ java $JAVA_OPTS -jar zuulsvr/target/*.jar --management.security.enabled=false --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar authentication-service/target/*.jar --server.port=8901 --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
-$ java $JAVA_OPTS -jar orgservice-new/target/*.jar --server.port=8087 --spring.profiles.active=dev
-$ java $JAVA_OPTS -jar specialroutes-service/target/*.jar --server.port=8910 --spring.profiles.active=dev
-$ java $JAVA_OPTS -jar zuulsvr/target/*.jar --management.security.enabled=false --spring.profiles.active=dev
 ```
 
 ```shell
@@ -291,6 +290,7 @@ $ java $JAVA_OPTS -jar zuulsvr/target/*.jar --management.security.enabled=false 
 $ java $JAVA_OPTS -jar organization-service/target/*.jar --server.port=8085 --spring.profiles.active=dev
 $ java $JAVA_OPTS -jar licensing-service/target/*.jar --server.port=8080 --spring.profiles.active=dev
 http://localhost:9411/
+http://localhost:5555/api/zipkinserver
 ```
 
 ```shell

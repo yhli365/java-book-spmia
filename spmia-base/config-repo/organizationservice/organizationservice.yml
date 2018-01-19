@@ -32,3 +32,6 @@ logging.level.com.netflix: WARN
 logging.level.org.springframework.web: WARN
 logging.level.com.thoughtmechanix: DEBUG
 logging.level.org.apache.kafka: DEBUG
+
+# 配置调试日志
+logging.level.org.springframework.security: DEBUG

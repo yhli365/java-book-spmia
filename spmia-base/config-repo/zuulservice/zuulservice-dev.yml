@@ -3,7 +3,9 @@ zuul.prefix:  /api
 zuul.routes.organizationservice: /organization/**
 zuul.routes.licensingservice: /licensing/**
 zuul.routes.authenticationservice: /auth/**
-zuul.sensitiveHeaders: Authorization
+#zuul.sensitiveHeaders: Authorization
+#必须这样配置，否则通过zuul网关访问其他服务时令牌无法处理
+zuul.sensitiveHeaders: Cookie,Set-Cookie
 zuul.debug.request: true
 #hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2
 #hystrix.command.licensingservice.execution.isolation.thread.timeoutInMilliseconds: 2
