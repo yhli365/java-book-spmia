@@ -1,0 +1,1895 @@
+{
+	"info": {
+		"name": "java-book-spmia",
+		"_postman_id": "f2dcc411-8e7b-b019-d7c1-4e33e7baa796",
+		"description": "spring microservices in action",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "chapter1",
+			"description": "",
+			"item": [
+				{
+					"name": "hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/hello/john/carnell",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"hello",
+								"john",
+								"carnell"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chapter2",
+			"description": "",
+			"item": [
+				{
+					"name": "getLicenses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								"f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updateLicenses",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								"f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "saveLicenses",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								"f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deleteLicenses",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								"f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chapter3",
+			"description": "",
+			"item": [
+				{
+					"name": "confsvr-licensingservice-default",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8888/licensingservice/default",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8888",
+							"path": [
+								"licensingservice",
+								"default"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "confsvr-licensingservice-dev",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8888/licensingservice/dev",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8888",
+							"path": [
+								"licensingservice",
+								"dev"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "confsvr-encrypt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "p0stgr@s"
+						},
+						"url": {
+							"raw": "http://{{host}}:8888/encrypt",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8888",
+							"path": [
+								"encrypt"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "confsvr-decrypt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "d495ce8603af958b2526967648aa9620b7e834c4eaff66014aa805450736e119"
+						},
+						"url": {
+							"raw": "http://{{host}}:8888/decrypt",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8888",
+							"path": [
+								"decrypt"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/licenses/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								"licenses",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chapter4",
+			"description": "",
+			"item": [
+				{
+					"name": "confsvr-organizationservice-default",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8888/organizationservice/default",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8888",
+							"path": [
+								"organizationservice",
+								"default"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "confsvr-licensingservice-default",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8888/licensingservice/default",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8888",
+							"path": [
+								"licensingservice",
+								"default"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "eureka-organizationservice-json",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8761/eureka/apps/organizationservice",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8761",
+							"path": [
+								"eureka",
+								"apps",
+								"organizationservice"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "eureka-organizationservice",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8761/eureka/apps/organizationservice",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8761",
+							"path": [
+								"eureka",
+								"apps",
+								"organizationservice"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "eureka-licensingservice",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8761/eureka/apps/licensingservice",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8761",
+							"path": [
+								"eureka",
+								"apps",
+								"licensingservice"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "organizationservice-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8085/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-get-feign",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/licenses/08dbe05-606e-4dad-9d33-90ef10e334f9/feign",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								"licenses",
+								"08dbe05-606e-4dad-9d33-90ef10e334f9",
+								"feign"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-get-rest",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/licenses/08dbe05-606e-4dad-9d33-90ef10e334f9/rest",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								"licenses",
+								"08dbe05-606e-4dad-9d33-90ef10e334f9",
+								"rest"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-get-discovery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/licenses/08dbe05-606e-4dad-9d33-90ef10e334f9/discovery",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								"licenses",
+								"08dbe05-606e-4dad-9d33-90ef10e334f9",
+								"discovery"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chapter5",
+			"description": "第5章 坏事发生时：使用Spring Cloud和Netflix Hystrix的客户端弹性模式",
+			"item": [
+				{
+					"name": "licensingservice-list-p1-circuitbreaker.a",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-test-id",
+								"value": "circuitbreaker"
+							},
+							{
+								"key": "my-test-sleep",
+								"value": "-1"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v2/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-list-p1-circuitbreaker.b",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-test-id",
+								"value": "circuitbreaker"
+							},
+							{
+								"key": "my-test-sleep",
+								"value": "1"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v2/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-list-p1-circuitbreaker.c",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-test-id",
+								"value": "circuitbreaker"
+							},
+							{
+								"key": "my-test-sleep",
+								"value": "0"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v2/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-list-p2-timeout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-test-id",
+								"value": "timeout"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v2/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-list-p3-fallback",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-test-id",
+								"value": "fallback"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v2/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-list-p4-bulkhead",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-test-id",
+								"value": "bulkhead"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v2/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-list-p5-isolation",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-test-id",
+								"value": "isolation"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v2/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-list-p6-config",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-test-id",
+								"value": "config"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v2/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-get-p7-threadlocal",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-test-id",
+								"value": "threadlocal"
+							},
+							{
+								"key": "tmx-correlation-id",
+								"value": "TEST-CORRELATION-ID"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v2/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/licenses/38777179-7094-4200-9d61-edb101c6ea84",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v2",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								"licenses",
+								"38777179-7094-4200-9d61-edb101c6ea84"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "my-test-id",
+								"value": "threadlocal"
+							},
+							{
+								"key": "tmx-correlation-id",
+								"value": "TEST-CORRELATION-ID"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/licenses/38777179-7094-4200-9d61-edb101c6ea84",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								"licenses",
+								"38777179-7094-4200-9d61-edb101c6ea84"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chapter6",
+			"description": "",
+			"item": [
+				{
+					"name": "zuulsvr-routes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:5555/routes",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"routes"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "zuulsvr-refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:5555/refresh",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"refresh"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "zuulsvr-organizationservice-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:5555/api/organization/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"organization",
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "zuulsvr-licensingservice-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:5555/api/licensing/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/licenses/38777179-7094-4200-9d61-edb101c6ea84/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"licensing",
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								"licenses",
+								"38777179-7094-4200-9d61-edb101c6ea84",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "organizationservice-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8085/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "orgservice-new-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8087/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8087",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "specialroutesservice-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8910/v1/route/abtesting/organizationservice/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8910",
+							"path": [
+								"v1",
+								"route",
+								"abtesting",
+								"organizationservice",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-tools",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/tools/eureka/services",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"tools",
+								"eureka",
+								"services"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/licenses/38777179-7094-4200-9d61-edb101c6ea84/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								"licenses",
+								"38777179-7094-4200-9d61-edb101c6ea84",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chapter7",
+			"description": "",
+			"item": [
+				{
+					"name": "auth-oauth-token-by-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "272afef3-3195-48ab-927a-4873cf74a581",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Token type is Bearer\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.token_type).to.eql(\"bearer\");",
+									"});",
+									"",
+									"pm.test(\"Set Token\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"access_token\",jsonData[\"access_token\"]);",
+									"    // pm.variables.set(\"access_token\",jsonData[\"access_token\"]);",
+									"    console.log(\"result data\", jsonData);",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "thisissecret",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "eagleeye",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "webclient",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "john.carnell",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password1",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host}}:8901/auth/oauth/token",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8901",
+							"path": [
+								"auth",
+								"oauth",
+								"token"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "auth-oauth-token-by-admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2694376f-de48-4efd-be08-7364f5cf8963",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Token type is Bearer\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.token_type).to.eql(\"bearer\");",
+									"});",
+									"",
+									"pm.test(\"Set Token\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"access_token\",jsonData[\"access_token\"]);",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "thisissecret",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "eagleeye",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "webclient",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "william.woodward",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password2",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host}}:8901/auth/oauth/token",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8901",
+							"path": [
+								"auth",
+								"oauth",
+								"token"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "auth-user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8901/auth/user",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8901",
+							"path": [
+								"auth",
+								"user"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "auth-user-by-token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8901/auth/user",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8901",
+							"path": [
+								"auth",
+								"user"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "organizationservice-get",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8085/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "organizationservice-get-by-token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8085/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "organizationservice-delete-by-token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8085/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8085",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-get-by-token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "tmx-correlation-id",
+								"value": "TEST-{{$timestamp}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/licenses/38777179-7094-4200-9d61-edb101c6ea84/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								"licenses",
+								"38777179-7094-4200-9d61-edb101c6ea84",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-tools-by-token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/tools/eureka/services",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"tools",
+								"eureka",
+								"services"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "zuulsvr-organizationservice-get-by-token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:5555/api/organization/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"organization",
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "zuulsvr-licensingservice-get-by-token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:5555/api/licensing/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c/licenses/38777179-7094-4200-9d61-edb101c6ea84/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"licensing",
+								"v1",
+								"organizations",
+								"442adb6e-fa58-47f3-9ca2-ed1fecdfe86c",
+								"licenses",
+								"38777179-7094-4200-9d61-edb101c6ea84",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chapter8",
+			"description": "",
+			"item": [
+				{
+					"name": "zuulsvr-organizationservice-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:5555/api/organization/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"organization",
+								"v1",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "zuulsvr-organizationservice-put",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"contactEmail\": \"mark.balster@custcrmco.com\",\r\n\"contactName\": \"Mark Balster\",\r\n\"contactPhone\": \"823-555-2222\",\r\n\"id\": \"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a\",\r\n\"name\": \"customer-crm-co-2\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://{{host}}:5555/api/organization/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"organization",
+								"v1",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "zuulsvr-licensingservice-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:5555/api/licensing/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"licensing",
+								"v1",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								"f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chapter9",
+			"description": "",
+			"item": [
+				{
+					"name": "zuulsvr-organizationservice-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:5555/api/organization/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"organization",
+								"v1",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "zuulsvr-licensingservice-get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:5555/api/licensing/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"licensing",
+								"v1",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								"licenses",
+								"f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "zuulsvr-organizationservice-put",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"contactEmail\": \"mark.balster@custcrmco.com\",\r\n\"contactName\": \"Mark Balster\",\r\n\"contactPhone\": \"823-555-2222\",\r\n\"id\": \"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a\",\r\n\"name\": \"customer-crm-co-2\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://{{host}}:5555/api/organization/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"organization",
+								"v1",
+								"organizations",
+								"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a",
+								""
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "zuulsvr-routes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:5555/routes",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "5555",
+							"path": [
+								"routes"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "licensingservice-tools",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}:8080/v1/tools/eureka/services",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"tools",
+								"eureka",
+								"services"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "env",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{host}}:8080/env",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "8080",
+					"path": [
+						"env"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "refresh",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{host}}:8080/refresh",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "8080",
+					"path": [
+						"refresh"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "664a1f5a-a7a0-40ea-b399-14236b4a11f0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d758dab9-0ede-4b3d-8dec-15d130fc1fe9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
